@@ -15,13 +15,13 @@ new SimpleLightbox('.gallery a', {
 function onCreatGallery() {
   const galleryItemsEl = galleryItems.reduce(
     (acc, { preview, original, description }) =>
-      (acc += `
+      (acc += `<li>
  <a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>
+</a></li>
    `),
     ''
   );
   galleryEL.insertAdjacentHTML('beforeend', galleryItemsEl);
-  // console.log(galleryItemsEl);
+  console.log(galleryItemsEl);
 }
