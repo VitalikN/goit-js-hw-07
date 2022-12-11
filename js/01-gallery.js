@@ -48,7 +48,7 @@ function onModalSource(source, alt) {
 }
 
 function onClose(evt) {
-  if (evt.code === 'Escape') {
+  if (evt.code !== 'Escape') {
     return;
   }
   modalSource.close();
