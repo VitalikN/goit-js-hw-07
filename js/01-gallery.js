@@ -26,6 +26,7 @@ function onCreatGallery() {
 }
 
 function onClickImg(evt) {
+  evt.preventDefault();
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
@@ -37,10 +38,10 @@ function onModalSource(source, alt) {
   modalSource = basicLightbox.create(
     `<img src="${source}"alt='${alt}'>`,
     {
-      onShow: () => window.addEventListener('keydown', onClose),
+      onShow: () => document.addEventListener('keydown', onClose),
     },
     {
-      onClose: () => window.removeEventListener('keydown', onClose),
+      onClose: () => document.removeEventListener('keydown', onClose),
     }
   );
   modalSource.show();
