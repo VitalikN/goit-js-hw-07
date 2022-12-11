@@ -35,21 +35,19 @@ function onClickImg(evt) {
 let modalSource;
 function onModalSource(source, alt) {
   modalSource = basicLightbox.create(
-    `
-    <img src="${source}"alt='${alt}'>
-`,
+    `<img src="${source}"alt='${alt}'>`,
     {
-      onShow: () => document.addEventListener('keydown', onClose),
+      onShow: () => window.addEventListener('keydown', onClose),
     },
     {
-      onClose: () => document.removeEventListener('keydown', onClose),
+      onClose: () => window.removeEventListener('keydown', onClose),
     }
   );
   modalSource.show();
 }
 
 function onClose(evt) {
-  if (evt.code !== 'Escape') {
+  if (evt.code === 'Escape') {
     return;
   }
   modalSource.close();
